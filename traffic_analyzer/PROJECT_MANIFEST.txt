@@ -1,0 +1,64 @@
+HTTP/HTTPS TRAFFIC ANALYZER - COMPLETE PROJECT
+==============================================
+
+TOTAL FILES: 38 Python modules + 3 support files (README.md, requirements.txt, run.bat)
+
+CORE MODULES (Parsers & Detection):
+├── parsers/http_parser.py           (530 lines) - URL/request/response parsing
+├── cookies/cookie_analyzer.py       (200 lines) - Cookie parsing & relationship tracking
+├── tls/tls_parser.py                (150 lines) - TLS metadata extraction
+├── waf_detection/detector.py        (170 lines) - WAF/CDN passive detection
+├── antibot_detection/detector.py    (170 lines) - Anti-bot/CAPTCHA passive detection
+├── connection_analysis/analyzer.py  (120 lines) - Keep-alive & multiplexing analysis
+
+STORAGE & PRIVACY:
+├── storage/redaction.py             (100 lines) - Redaction system (core privacy logic)
+├── storage/storage.py               (200 lines) - In-memory + SQLite persistence
+
+CAPTURE:
+└── capture/proxy_addon.py           (90 lines)  - mitmproxy integration
+
+EXPORTERS:
+└── exporters/exporter.py            (240 lines) - JSON, CSV, HAR, HTML export
+
+UI (PyQt6):
+├── ui/main_window.py                (400 lines) - Main application window
+├── ui/request_details.py            (40 lines)  - Request Explorer tab
+├── ui/cookie_view.py                (50 lines)  - Cookie Analysis tab
+├── ui/tls_view.py                   (50 lines)  - TLS/Encryption tab
+├── ui/waf_view.py                   (30 lines)  - WAF/CDN Detection tab
+├── ui/antibot_view.py               (35 lines)  - Anti-Bot/CAPTCHA tab
+├── ui/connection_view.py            (55 lines)  - Keep-Alive Analysis tab
+├── ui/flow_view.py                  (45 lines)  - Request Flow diagram
+├── ui/search_filter.py              (25 lines)  - Search & filtering bar
+└── ui/settings_dialog.py            (50 lines)  - Redaction & privacy settings
+
+TESTS:
+├── tests/test_http_parser.py        (45 lines)  - HTTP parser unit tests
+├── tests/test_cookie_parser.py      (95 lines)  - Cookie parsing & tracking tests
+├── tests/test_waf_detection.py      (80 lines)  - WAF detection tests
+├── tests/test_antibot_detection.py  (85 lines)  - Anti-bot detection tests
+├── tests/test_tls_parser.py         (90 lines)  - TLS parser tests
+└── tests/test_redaction.py          (120 lines) - Redaction system tests
+
+SUPPORT FILES:
+├── main.py                          (113 lines) - Application entry point
+├── requirements.txt                 - mitmproxy, PyQt6, cryptography
+├── run.bat                          - Windows launcher
+└── README.md                        - Full documentation (7.7KB)
+
+KEY DESIGN PROPERTIES:
+✓ Single redaction source of truth (storage/redaction.py)
+✓ Passive detection only (no bypass/evasion code exists)
+✓ Structural HTTPS safety boundary (cert details only visible with explicit CA install)
+✓ Thread-safe event-driven architecture (mitmproxy + Qt)
+✓ Comprehensive unit tests (6 test modules)
+✓ Windows/Linux/macOS compatible
+
+QUICK START:
+1. pip install -r requirements.txt
+2. python main.py
+3. Point browser proxy to 127.0.0.1:8080
+4. (Optional) Install CA cert for HTTPS payload visibility
+
+All files ready in: /mnt/user-data/outputs/traffic_analyzer/
